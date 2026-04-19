@@ -7,33 +7,31 @@
 </head>
 <body>
     <header>
-        <h1>Martyshko Mariia 66766 - System Zarządzania</h1>
+        <h1>Martyshko Mariia 66766 - Home</h1>
     </header>
     <div class="container">
         <nav>
             <h3>Menu</h3>
             <ul>
-                <li><a href="#">Strona Główna</a></li>
-                <li><a href="#">Baza Danych</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li><a href="index.php">Strona Główna</a></li>
+                <li><a href="baza.php">Baza Danych</a></li>
+                <li><a href="kontakt.php">Kontakt</a></li>
             </ul>
         </nav>
         <main>
             <div class="content-card">
                 <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80" alt="Car">
-                <h2>Panel Administracyjny</h2>
-                <form method="POST">
-                    <input type="text" name="entry" placeholder="Wpisz treść..." required>
-                    <button type="submit" name="submit">Dodaj do bazy</button>
-                </form>
-                <div class="results">
-                    <?php include 'db.php'; ?>
+                <h2>Witamy w systemie</h2>
+                <p>To jest strona główna projektu zaliczeniowego. Użyj menu po lewej, aby zarządzać bazą danych.</p>
+                <div class="info-box" style="background: #fff3cd; padding: 15px; border-radius: 5px;">
+                    <strong>Student:</strong> Mariia Martyshko<br>
+                    <strong>Numer albumu:</strong> 66766
                 </div>
             </div>
         </main>
         <aside>
             <h3>Status</h3>
-            <p>Połączono z test_db</p>
+            <p style="color: green;">● System aktywny</p>
         </aside>
     </div>
     <footer>
