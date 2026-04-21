@@ -1,13 +1,25 @@
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f4f4; }
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; line-height: 1.6; }
 header { background: #ffcc00; padding: 20px; text-align: center; border-bottom: 3px solid #333; }
-.container { display: flex; min-height: 500px; }
+.container { display: flex; flex-wrap: wrap; min-height: 500px; }
 nav { width: 20%; background: #e3f2fd; padding: 20px; border-right: 1px solid #ccc; }
 main { width: 60%; background: #fff; padding: 20px; }
 aside { width: 20%; background: #f1f8e9; padding: 20px; border-left: 1px solid #ccc; }
-footer { background: #333; color: #fff; text-align: center; padding: 15px; }
+footer { background: #333; color: #fff; text-align: center; padding: 15px; clear: both; }
 ul { list-style: none; padding: 0; }
 li { padding: 10px 0; border-bottom: 1px solid #ddd; }
-img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-input { padding: 10px; width: 70%; }
-button { padding: 10px 20px; background: #28a745; color: white; border: none; cursor: pointer; }
-.results { margin-top: 20px; text-align: left; background: #fafafa; padding: 10px; border: 1px dashed #999; }
+li a { text-decoration: none; color: #333; font-weight: bold; display: block; }
+img { width: 100%; max-width: 500px; border-radius: 8px; margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; }
+.content-card { background: white; padding: 10px; }
+input { padding: 12px; width: 100%; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+button { padding: 12px 20px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; }
+.results { margin-top: 20px; background: #fafafa; padding: 15px; border: 1px dashed #999; overflow-x: auto; }
+
+@media (max-width: 768px) {
+    nav, main, aside { width: 100%; border: none; min-height: auto; }
+    .container { flex-direction: column; }
+    header h1 { font-size: 1.5rem; }
+    nav { order: 2; border-bottom: 1px solid #ccc; }
+    main { order: 1; }
+    aside { order: 3; }
+}
