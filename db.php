@@ -1,27 +1,16 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "test_db";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-if ($conn->connect_error) {
-    echo "Błąd połączenia";
-}
-
-$conn->query("CREATE TABLE IF NOT EXISTS dane (id INT AUTO_INCREMENT PRIMARY KEY, info VARCHAR(255))");
-
+$conn = new mysqli("localhost", "root", "", "test_db");
+if ($conn->connect_error) { die("Błąd bazy"); }
+$conn->query("CREATE TABLE IF NOT EXISTS wpisy (id INT AUTO_INCREMENT PRIMARY KEY, tresc TEXT)");
 if (isset($_POST['submit'])) {
-    $text = $_POST['entry'];
-    $sql = "INSERT INTO dane (info) VALUES ('$text')";
-    $conn->query($sql);
+    $txt = $_POST['entry'];
+    $stmt = $conn->prepare("INSERT INTO wpisy (tresc) VALUES (?)");
+    $stmt->bind_param("s", $txt);
+    $stmt->execute();
 }
-
-$res = $conn->query("SELECT * FROM dane ORDER BY id DESC");
+$res = $conn->query("SELECT * FROM wpisy ORDER BY id DESC");
 while ($row = $res->fetch_assoc()) {
-    echo "<div>#" . $row['id'] . " - " . $row['info'] . "</div>";
+    echo "<div style='padding:10px; border-bottom:1px solid #eee;'>#".$row['id']." - ".$row['tresc']."</div>";
 }
-
 $conn->close();
 ?>
